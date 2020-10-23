@@ -6,21 +6,25 @@ const API_URL = 'http://www.omdbapi.com/?apikey=87ec8126&type=movie&s='
 
 form.addEventListener('submit', formSubmission);
 
-async function formSubmission(event) {
+function formSubmission(event) {
     event.preventDefault();
     const searchTerm = input.value;
     try {
-        const results = await getResults(searchTerm);
-        getResults(results);
+    getResults(searchTerm);        
     } catch (error) {
         showError(error);
     }
 }
 
-async function getResults(searchTerm) {
+function getResults(searchTerm) {
     const url = `${API_URL}${searchTerm}`;
-    const response = await fetch(url);
-    const data = await response.json();
+    fetch(url, {
+        method: 'POST',
+        mode: 'cors'
+    })
+    .then(response => response.json())
+    .then(data => showResults(data.Search));
+    
     if (data.Error) {
         throw new Error(data.Error);
     }
@@ -28,8 +32,11 @@ async function getResults(searchTerm) {
 }
 
 function showResults(results) {
-    resultsSection.innerHTML = results.reduce((html, element) => {
-        return html + `
+    console.log(results);
+    resultsSection.innerHTML = '';
+    let html = '';
+    results.forEach(element => {
+        html += `
         <div class="card col-4" style="width: 18rem;">
             <img class="card-img-top" src="${element.Poster}" alt="${element.Title}">
             <div class="card-body">
@@ -38,7 +45,8 @@ function showResults(results) {
             </div>
         </div>
         `;
-    }, '');
+    });
+    resultsSection.innerHTML = html;
 }
 
 function showError(error) {
