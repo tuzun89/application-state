@@ -9,11 +9,7 @@ form.addEventListener('submit', formSubmission);
 function formSubmission(event) {
     event.preventDefault();
     const searchTerm = input.value;
-    try {
-    getResults(searchTerm);        
-    } catch (error) {
-        showError(error);
-    }
+    getResults(searchTerm).then(showResults);
 }
 
 function getResults(searchTerm) {
@@ -32,7 +28,7 @@ function getResults(searchTerm) {
 }
 
 function showResults(results) {
-    console.log(results);
+    //console.log(results);
     resultsSection.innerHTML = '';
     let html = '';
     results.forEach(element => {
@@ -46,6 +42,7 @@ function showResults(results) {
         </div>
         `;
     });
+    //console.log(html);
     resultsSection.innerHTML = html;
 }
 
