@@ -68,7 +68,7 @@
    line-height: 1.5;
    color: #adafae;
    text-align: left;
-   background-color: #060606;
+   background-color: #3a3a3a;
  }
  
  [tabindex="-1"]:focus:not(:focus-visible) {
@@ -367,7 +367,7 @@
    margin-bottom: 0.5rem;
    font-weight: 500;
    line-height: 1.2;
-   color: #fff;
+   color: rgb(118, 119, 119);
  }
  
  h1, .h1 {
@@ -4677,7 +4677,7 @@
  }
  
  .navbar-dark .navbar-brand {
-   color: #fff;
+   color: rgb(118, 119, 119);
  }
  
  .navbar-dark .navbar-brand:hover, .navbar-dark .navbar-brand:focus {

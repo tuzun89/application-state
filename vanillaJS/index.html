@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="bootstrap.css">
+    <style>
+        .movies-area {
+            justify-content: space-around;
+            align-items: flex-start;
+        }
+    </style>
 </head>
 
 <body>
@@ -20,16 +26,16 @@
                 <label for="searchTerm">Search</label>
                 <input type="text" class="form-control" id="searchTerm" placeholder="Enter film name...">
             </fieldset>
-            <button type="submit" class="btn btn-primary">Search</button>
+            <button type="submit" class="btn btn-dark">Search</button>
         </form>
-        <section class="row">
+        <section class="row movies-area">
             <section class="mt-2 col-9 row" id="results">
 
             </section>
             <section class="mt-2 col-3 row">
-                <h3>Watch Later</h3>
-                <section id="watch-later">
-                    <small>There are no films chosen.</small>
+                <h3>Watchlist</h3>
+                <section class="row" id="watch-list">
+
                 </section>
             </section>
         </section>
