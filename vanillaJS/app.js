@@ -84,7 +84,7 @@ function showResults(results) { // array of results passed in to showResults
 // bootstrap card filled with movie value and properties from API call.
 function getMovieTemplate(movie, cols, button = true) {
     return `
-    <div class="card col${cols}" style="width: 16em;"> // cols
+    <div class="card col${cols}" style="width: 16em;">
         <img class="card-img-top" src="${movie.Poster}" alt="${movie.Title}">
         <div class="card-body">
             <h5 class="card-title">${movie.Title}</h5>
